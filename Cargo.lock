@@ -50,12 +50,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "98161a4e3e2184da77bb14f02184cdd111e83bbbcc9979dfee3c44b9a85f5602"
 
 [[package]]
-name = "arrayref"
-version = "0.3.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a4c527152e37cf757a3f78aae5a06fbeefdb07ccc535c980a3208ee3060dd544"
-
-[[package]]
 name = "async-compression"
 version = "0.3.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -90,6 +84,12 @@ name = "base64"
 version = "0.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "904dfeac50f3cdaba28fc6f57fdcddb75f49ed61346676a78c4ffe55877802fd"
+
+[[package]]
+name = "base64"
+version = "0.20.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0ea22880d78093b0cbe17c89f64a7d457941e65759157ec6cb31a31d652b05e5"
 
 [[package]]
 name = "binread"
@@ -1686,10 +1686,11 @@ checksum = "21326818e99cfe6ce1e524c2a805c189a99b5ae555a35d19f9a284b427d86afa"
 
 [[package]]
 name = "ostree"
-version = "0.17.0"
+version = "0.17.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "075e224494c835757887025f344b06ab940e21c6bfaf41b7c629cee0328c8e7f"
+checksum = "8f9c3da362376d17ac2e2d5759fe544cdc7471b66e98c324be5efd2c7995672d"
 dependencies = [
+ "base64 0.20.0",
  "bitflags",
  "cap-std",
  "gio",
@@ -1699,7 +1700,6 @@ dependencies = [
  "libc",
  "once_cell",
  "ostree-sys",
- "radix64",
  "thiserror",
 ]
 
@@ -1921,16 +1921,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "radix64"
-version = "0.6.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "999718fa65c3be3a74f3f6dae5a98526ff436ea58a82a574f0de89eecd342bee"
-dependencies = [
- "arrayref",
- "cfg-if 0.1.10",
-]
-
-[[package]]
 name = "rand"
 version = "0.8.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2054,7 +2044,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "68cc60575865c7831548863cc02356512e3f1dc2f3f82cb837d7fc4cc8f3c97c"
 dependencies = [
  "async-compression",
- "base64",
+ "base64 0.13.0",
  "bytes",
  "encoding_rs",
  "futures-core",
@@ -3019,7 +3009,7 @@ version = "0.15.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8b36cd2e86a412f0ba73d808f17f5c8e0eeb90e22990b82602841366f4e471f7"
 dependencies = [
- "base64",
+ "base64 0.13.0",
  "iso8601",
  "mime",
  "reqwest",
